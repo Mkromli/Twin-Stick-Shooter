@@ -7,22 +7,27 @@ public enum EnemyState {Idle, Chase, Attack, Recover, Dead}
 
 public class EnemyStateMachine : MonoBehaviour
 {
+    public EnemyClass enemyClass;
+
     public Transform target;
 
-    public float chaseRadius = 60f;
-    public float attackRadius = 25f;
     public NavMeshAgent navMesh;
 
-    public Transform[] destinations;
+    private Transform[] destinations;
 
     private int currentPoint;
 
     private EnemyState currentState;
 
+    private float chaseRadius;
+    private float attackRadius;
 
     private void Start()
     {
         currentState = EnemyState.Idle;
+
+        chaseRadius = enemyClass.chaseRadius;
+        attackRadius = enemyClass.attackRadius;
     }
 
     private void Update()
@@ -34,6 +39,8 @@ public class EnemyStateMachine : MonoBehaviour
                 break;
 
             case EnemyState.Chase:
+                ChasePlayer();
+                CheckDistance();
                 break;
 
             case EnemyState.Attack:
