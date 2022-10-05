@@ -9,7 +9,9 @@ public class ShooterEnemy : EnemyClass
     public override float chaseRadius {get => 60f;}
     public override float attackRadius {get => 30f;}
 
-    public override int speed {get => 20;}
+    public override float speed {get => 2f;}
+
+    public override float recoverTime {get => 5f;}
 
     public override void Attack()
     {

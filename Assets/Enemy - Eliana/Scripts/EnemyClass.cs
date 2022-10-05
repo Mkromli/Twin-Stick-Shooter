@@ -10,9 +10,9 @@ public class EnemyClass : MonoBehaviour
     public virtual float chaseRadius {get; set;}
     public virtual float attackRadius {get; set;}
 
-    public virtual int speed {get; set;}
+    public virtual float speed {get; set;}
 
-    public Mesh mesh;
+    public virtual float recoverTime {get; set;}
 
     private void Start()
     {

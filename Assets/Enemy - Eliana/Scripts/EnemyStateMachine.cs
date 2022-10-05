@@ -48,9 +48,12 @@ public class EnemyStateMachine : MonoBehaviour
                 break;
 
             case EnemyState.Recover:
+                RecoverTimer();
                 break;
 
             case EnemyState.Dead:
+                Destroy(this);
+                break;
 
             default:
                 break;
@@ -79,6 +82,16 @@ public class EnemyStateMachine : MonoBehaviour
         Vector3 moveTo = Vector3.MoveTowards(current: transform.position, target.position, 100f);
     }
 
+    private void RecoverTimer()
+    {
+        float counter = 0f;
 
+        float waitTime = enemyClass.recoverTime;
+
+        while (counter <= waitTime)
+        {
+            counter += Time.deltaTime;
+        }
+    }
     
 }
