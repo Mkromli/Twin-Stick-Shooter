@@ -7,6 +7,7 @@ public class BulletBehavior : MonoBehaviour
     public float damage;
     public float lifeSpawn;
     public float bulletSize;
+    private GameObject player;
 
 
     // Start is called before the first frame update
@@ -41,8 +42,15 @@ public class BulletBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //Checks if it has object it has colided with had the int "PlayerHealth" and then reduces the health by the damadge of the bullet
-            //collision.gameObject.GetComponent<PlayerHealth>().health -= damage;
+            //Checks if it has object it has colided with had the int "PlayerHealth" and then reduces the health by the damadge of the bullet. Also checks if the player is currently invincible or not.
+            player = GameObject.Find("Player");
+            PlayerHealth invincible = player.GetComponent<PlayerHealth>();
+            if (invincible.invincible == false)
+            {
+                collision.gameObject.GetComponent<PlayerHealth>().health -= damage;
+                invincible.invincible = true;
+            }
+            
             //This destorys the bullet
             Destroy(gameObject);
         }

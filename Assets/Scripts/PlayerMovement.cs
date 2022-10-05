@@ -103,19 +103,16 @@ public class PlayerMovement : MonoBehaviour
        // GetComponent<Transform>().Rotate(Vector3.up * rot.x * rotSpeed);
     }
 
- 
-
-
-
     private void OnEnable()
     {
-        controls.PlayerMovement.Enable(); 
+        controls.PlayerMovement.Enable();
     }
 
     private void OnDisable()
     {
         controls.PlayerMovement.Disable();
     }
+
 
     //the tutorial told me to put this here so its here, im assuming it just checks the direction the stick is aiming but dont know for sure.
     void HandleInput()
