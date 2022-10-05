@@ -42,7 +42,7 @@ public class BulletBehavior : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             //Checks if it has object it has colided with had the int "PlayerHealth" and then reduces the health by the damadge of the bullet
-            collision.gameObject.GetComponent<PlayerHealth>().health -= damage;
+            //collision.gameObject.GetComponent<PlayerHealth>().health -= damage;
             //This destorys the bullet
             Destroy(gameObject);
         }

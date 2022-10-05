@@ -5,25 +5,43 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float originalSpeed;
+    [SerializeField] private float dashSpeed;
     [SerializeField] private float rotSpeed;
     [SerializeField] private float controllerDeadZone = 0.1f;
     [SerializeField] private float gamepadRotateSmoothing = 1000f;
+    [SerializeField] private int dashLength = 300;
+    [SerializeField] private int dashCooldownLength = 1800;
 
     PlayerControls controls;
     Vector2 move;
     Vector2 aim;
 
+    private float speed;
     private Vector3 playerVelocity;
+    
+    private bool dashTimerStart = false;
+    private bool dashCooldownStart = false;
+    private int dashTimer;
+    private int dashCooldown;
+    private bool dashButtonPressed;
+
+    private GameObject player;
 
 
     private void Awake()
     {
         controls = new PlayerControls();
-
+        speed = originalSpeed;
+        
         controls.PlayerMovement.Movement.performed += cntxt => move = cntxt.ReadValue<Vector2>();
         controls.PlayerMovement.Movement.canceled += cntxt => move = Vector2.zero;
 
+        controls.PlayerMovement.Dash.performed += cntxt => dashButtonPressed = true;
+        controls.PlayerMovement.Dash.canceled += cntxt => dashButtonPressed = false;
+
+
+        //This is tank controls that i had before, if we want  to we can make this an option in gameplay.
         //controls.PlayerMovement.Rotate.performed += cntxt => rot = cntxt.ReadValue<Vector2>();
         //controls.PlayerMovement.Rotate.canceled += cntxt => rot = Vector2.zero;
     }
@@ -36,6 +54,48 @@ public class PlayerMovement : MonoBehaviour
         Vector3 m = new Vector3(move.x * speed, 0, move.y * speed);
 
         GetComponent<Rigidbody>().velocity = m;
+
+        //BEHOLD, THE DASH-INATOR!!!
+        if (dashButtonPressed == true)
+        {
+            if (dashCooldownStart == false)
+            {
+                if (dashTimerStart == false)
+                {
+                    speed = dashSpeed;
+                    dashTimerStart = true;
+                    player = GameObject.Find("Player");
+                    player.GetComponent<Rigidbody>().useGravity = false;
+                }
+            }
+        }
+
+        if (dashTimerStart == true)
+        {
+            dashTimer += 1;
+            if (dashTimer >= dashLength)
+            {
+                dashTimerStart = false;
+                dashCooldownStart = true;
+                dashTimer = 0;
+                speed = originalSpeed;
+                player = GameObject.Find("Player");
+                player.GetComponent<Rigidbody>().useGravity = true;
+            }
+
+        }
+
+        if (dashCooldownStart == true)
+        {
+            dashCooldown += 1;
+            if (dashCooldown >= dashCooldownLength)
+            {
+                dashCooldownStart = false;
+                dashCooldown = 0;
+            }
+
+        }
+
 
         HandleInput();
         HandleRotation();
