@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -70,9 +71,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        //the part where it dashes lol
         if (dashTimerStart == true)
         {
             dashTimer += 1;
+
+            //the thing that stops the dashing
             if (dashTimer >= dashLength)
             {
                 dashTimerStart = false;
@@ -85,9 +89,11 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+        //the thing that does the cooldown
         if (dashCooldownStart == true)
         {
             dashCooldown += 1;
+            //the thing that checks when cooldown is over
             if (dashCooldown >= dashCooldownLength)
             {
                 dashCooldownStart = false;
@@ -101,6 +107,22 @@ public class PlayerMovement : MonoBehaviour
         HandleRotation();
 
        // GetComponent<Transform>().Rotate(Vector3.up * rot.x * rotSpeed);
+    }
+
+
+    //checks if dashing into shooter enemy, if the player does the shooter dies.
+    private void OnCollisionEnter(Collision collision)
+    {
+        //put the name of the shooting enemies in there, so that it can actually work lol
+        if (collision.gameObject.name == "EnemyNamehere lol")
+        {
+            if (dashTimerStart == true)
+            {
+                Destroy(collision.gameObject);
+
+            }
+
+        }
     }
 
     private void OnEnable()
