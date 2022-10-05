@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 574858380798423248}
   - component: {fileID: 3447842596003664350}
   - component: {fileID: 979738589524883869}
+  - component: {fileID: 9001766458592182707}
   m_Layer: 0
   m_Name: ShooterEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +103,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
+--- !u!114 &9001766458592182707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115919135170036754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b7924eaf0a8be4ba2cbbd99fad8ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7816377870417232490, guid: e6d2fbb232793d744aa1f1aefd628270, type: 3}
+  shootForce: 0
+  upwardForce: 0
+  timeBetweenShoting: 0
+  spread: 0
+  reloadTime: 0
+  timeBetweenShots: 0
+  maganizeSize: 0
+  bulletPerTap: 0
+  allowButtonHold: 0
+  attackPoint: {fileID: 0}
 --- !u!1 &5042468901729705897
 GameObject:
   m_ObjectHideFlags: 0

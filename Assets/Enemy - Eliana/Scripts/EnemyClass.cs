@@ -7,6 +7,7 @@ public class EnemyClass : MonoBehaviour
     public virtual int maxHP {get; set;}
     public int currentHP;
 
+    public virtual int roamRadius {get; set;}
     public virtual float chaseRadius {get; set;}
     public virtual float attackRadius {get; set;}
 
