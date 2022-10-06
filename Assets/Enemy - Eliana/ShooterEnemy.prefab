@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 574858380798423248}
   - component: {fileID: 3447842596003664350}
   - component: {fileID: 979738589524883869}
-  - component: {fileID: 9001766458592182707}
   m_Layer: 0
   m_Name: ShooterEnemy
   m_TagString: Enemy
@@ -35,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 6240763895361609680}
   - {fileID: 592173957241604322}
+  - {fileID: 8072403744109218512}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -104,29 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHP: 0
---- !u!114 &9001766458592182707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3115919135170036754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2b7924eaf0a8be4ba2cbbd99fad8ed8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 7816377870417232490, guid: e6d2fbb232793d744aa1f1aefd628270, type: 3}
-  shootForce: 500
-  upwardForce: 0
-  timeBetweenShoting: 1
-  spread: 1
-  reloadTime: 1
-  timeBetweenShots: 1
-  maganizeSize: 1
-  bulletPerTap: 1
-  allowButtonHold: 0
-  attackPoint: {fileID: 592173957241604322}
+  isDead: 0
 --- !u!1 &4088918150847935485
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +136,62 @@ Transform:
   m_Father: {fileID: 7834492859737547091}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4562684464261028419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8072403744109218512}
+  - component: {fileID: 2558865667972695605}
+  m_Layer: 0
+  m_Name: Gun Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8072403744109218512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4562684464261028419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.559, y: 0.944, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7834492859737547091}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2558865667972695605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4562684464261028419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587754061864bc74ab4b512991230f91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7816377870417232490, guid: e6d2fbb232793d744aa1f1aefd628270, type: 3}
+  shootForce: 1000
+  upwardForce: 0
+  timeBetweenShoting: 1
+  spread: 1
+  reloadTime: 1
+  timeBetweenShots: 1
+  maganizeSize: 5
+  bulletPerTap: 1
+  allowButtonHold: 0
+  shooting: 0
+  attackPoint: {fileID: 592173957241604322}
 --- !u!1 &5042468901729705897
 GameObject:
   m_ObjectHideFlags: 0
