@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShooterEnemy : EnemyClass
 {
-    public override int maxHP {get => 50;}
+    public override float maxHP {get => 50;}
 
     public override float attackRadius {get => 30f;}
 

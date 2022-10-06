@@ -52,7 +52,6 @@ public class EnemyGunManager : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false; //OBS THIS ONE MIGHT BE NEEDED!
-        Debug.Log("Shooting!");
 
         //Creates some time between shots
         Invoke("ResetShot", timeBetweenShoting);

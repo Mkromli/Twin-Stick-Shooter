@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExploderEnemy : EnemyClass
 {
-    public override int maxHP {get => 45;}
+    public override float maxHP {get => 45;}
 
     public override float attackRadius {get => 15f;}
 

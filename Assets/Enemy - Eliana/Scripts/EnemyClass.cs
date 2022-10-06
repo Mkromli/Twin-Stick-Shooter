@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyClass : MonoBehaviour
 {
-    public virtual int maxHP {get; set;}
-    public int currentHP;
+    public virtual float maxHP {get; set;}
+    public float currentHP;
 
     public virtual int roamRadius {get; set;}
     public virtual float attackRadius {get; set;}
@@ -24,7 +24,7 @@ public class EnemyClass : MonoBehaviour
         isDead = false;
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(float dmg)
     {
         currentHP -= dmg;
 

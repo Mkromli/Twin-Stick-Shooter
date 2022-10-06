@@ -54,5 +54,13 @@ public class BulletBehavior : MonoBehaviour
             //This destorys the bullet
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Ow");
+            
+            //This destorys the bullet
+            Destroy(gameObject);
+        }
     }
 }
