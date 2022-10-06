@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyClass: {fileID: 979738589524883869}
-  target: {fileID: 0}
+  target: {fileID: 3094807974914400831, guid: c7353af63d31b784689ff2ecd15f74fd, type: 3}
   navMesh: {fileID: 6550291530731086525}
 --- !u!114 &979738589524883869
 MonoBehaviour:
