@@ -33,4 +33,13 @@ public class PlayerHealth : MonoBehaviour
      }
 
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Lava")
+        {
+            health = 0;
+            Debug.Log(health);
+
+        }
+    }
 }
