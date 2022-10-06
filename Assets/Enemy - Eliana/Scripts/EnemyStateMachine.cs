@@ -13,12 +13,9 @@ public class EnemyStateMachine : MonoBehaviour
 
     public NavMeshAgent navMesh;
 
-    private Transform[] destinations;
-
-    private int currentPoint;
-
     private EnemyState currentState;
 
+    private int roamRadius;
     private float chaseRadius;
     private float attackRadius;
 
@@ -26,6 +23,7 @@ public class EnemyStateMachine : MonoBehaviour
     {
         currentState = EnemyState.Idle;
 
+        roamRadius = enemyClass.roamRadius;
         chaseRadius = enemyClass.chaseRadius;
         attackRadius = enemyClass.attackRadius;
     }
@@ -48,12 +46,28 @@ public class EnemyStateMachine : MonoBehaviour
                 break;
 
             case EnemyState.Recover:
+                RecoverTimer();
                 break;
 
             case EnemyState.Dead:
+                Destroy(this);
+                break;
 
             default:
                 break;
+        }
+    }
+
+    private void Roam()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * roamRadius;
+
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        if(NavMesh.SamplePosition(randomDirection, out hit, roamRadius, 1))
+        {
+            Vector3 finalPosition = hit.position;
+            Vector3 moveTo = Vector3.MoveTowards(transform.position, finalPosition, 100f);
         }
     }
 
@@ -76,9 +90,19 @@ public class EnemyStateMachine : MonoBehaviour
     {
         transform.LookAt(target);
 
-        Vector3 moveTo = Vector3.MoveTowards(current: transform.position, target.position, 100f);
+        Vector3 moveTo = Vector3.MoveTowards(transform.position, target.position, 100f);
     }
 
+    private void RecoverTimer()
+    {
+        float counter = 0f;
 
+        float waitTime = enemyClass.recoverTime;
+
+        while (counter <= waitTime)
+        {
+            counter += Time.deltaTime;
+        }
+    }
     
 }
