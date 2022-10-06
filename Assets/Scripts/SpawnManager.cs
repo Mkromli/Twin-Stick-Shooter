@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int enemySpawnTime = 300;
     [SerializeField] private int enemySpawnTimeLimit = 120;
     private int timer;
-    private float spawnArea;
+    private float spawnArea = 0;
     private float enemyChoose;
 
     void Update()
@@ -22,49 +22,55 @@ public class SpawnManager : MonoBehaviour
             GameObject shooterE = Instantiate(shooter);
             GameObject creeperE = Instantiate(creeper);
 
-            spawnArea = Random.Range(0, 3);
+            spawnArea += 1;
+
+            if (spawnArea > 2)
+            {
+                spawnArea = 0;
+
+            }
             enemyChoose = Random.Range(0, 2);
 
-            if (spawnArea == 0)
+            if (spawnArea == 0f)
             {
-               if (enemyChoose == 1)
+               if (enemyChoose == 1f)
                 {
-                    shooterE.transform.position = new Vector3(Random.Range(25f, 47f), 1f, Random.Range(59f, -60f));
+                    shooterE.transform.position = new Vector3(30, 1f, 0);
 
                 }
                 else
                 {
-                    creeperE.transform.position = new Vector3(Random.Range(25f, 47f), 1f, Random.Range(59f, -60f));
+                    creeperE.transform.position = new Vector3(30, 1f, 0);
 
                 }
                 
                 
                 
             }
-            else if (spawnArea == 1)
+            else if (spawnArea == 1f)
             {
-                if (enemyChoose > 0.5)
+                if (enemyChoose == 1f)
                 {
-                    shooterE.transform.position = new Vector3(Random.Range(10f, -10f), 1f, Random.Range(-60f, 59f));
+                    shooterE.transform.position = new Vector3(0f, 1f, 0f);
 
                 }
                 else
                 {
-                    creeperE.transform.position = new Vector3(Random.Range(10f, -10f), 1f, Random.Range(-60f, 59f));
+                    creeperE.transform.position = new Vector3(0f, 1f, 0f);
 
                 }
-                ;
+                
             }
-            else if (spawnArea == 2)
+            else if (spawnArea == 2f)
             {
-                if (enemyChoose > 0.5)
+                if (enemyChoose == 1f)
                 {
-                    shooterE.transform.position = new Vector3(Random.Range(-27f, -47f), 1f, Random.Range(59f, -60));
+                    shooterE.transform.position = new Vector3(-30f, 1f, -30f);
 
                 }
                 else
                 {
-                    creeperE.transform.position = new Vector3(Random.Range(-27f, -47f), 1f, Random.Range(59f, -60));
+                    creeperE.transform.position = new Vector3(-30f, 1f, -30f);
 
                 }
                 

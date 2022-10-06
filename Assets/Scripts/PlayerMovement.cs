@@ -28,8 +28,10 @@ public class PlayerMovement : MonoBehaviour
     private int dashCooldown;
     private bool dashButtonPressed;
     private bool resetButtonPressed;
+    private bool shootButtonPressed;
 
     private GameObject player;
+    private GameObject gunManager;
 
 
     private void Awake()
@@ -45,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
 
         controls.PlayerMovement.Restart.performed += cntxt => resetButtonPressed = true;
 
+        controls.PlayerMovement.Shoot.performed += cntxt => shootButtonPressed = true;
+        controls.PlayerMovement.Shoot.canceled += cntxt => shootButtonPressed = false;
+
 
         //This is tank controls that i had before, if we want  to we can make this an option in gameplay.
         //controls.PlayerMovement.Rotate.performed += cntxt => rot = cntxt.ReadValue<Vector2>();
@@ -59,6 +64,22 @@ public class PlayerMovement : MonoBehaviour
         Vector3 m = new Vector3(move.x * speed, 0, move.y * speed);
 
         GetComponent<Rigidbody>().velocity = m;
+
+        if (shootButtonPressed == true)
+        {
+          gunManager = GameObject.Find("Gun Manager");
+            GunManager shooting = gunManager.GetComponent<GunManager>();
+            shooting.shooting = true;
+
+
+        }
+        else
+        {
+            gunManager = GameObject.Find("Gun Manager");
+            GunManager shooting = gunManager.GetComponent<GunManager>();
+            shooting.shooting = false;
+        }
+
 
         //BEHOLD, THE DASH-INATOR!!!
         if (dashButtonPressed == true)
