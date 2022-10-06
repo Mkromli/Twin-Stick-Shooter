@@ -68,6 +68,8 @@ public class GunManager : MonoBehaviour
         }
     }
 
+   
+
     private void Shoot()
     {
         readyToShoot = false; //OBS THIS ONE MIGHT BE NEEDED!

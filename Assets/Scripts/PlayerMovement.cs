@@ -96,13 +96,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //the reset
-        if (resetButtonPressed == true)
-        {
-            RestartGame();
-            Debug.Log("Pressing Y");
-        }
-
         //the part where it dashes lol
         if (dashTimerStart == true)
         {
