@@ -506,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677465180383879613, guid: 24bcaa804529e3948962970a71de1225, type: 3}
       propertyPath: health
-      value: 500
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24bcaa804529e3948962970a71de1225, type: 3}
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooter: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
-  creeper: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
+  creeper: {fileID: 0}
   enemySpawnTime: 5000
   enemySpawnTimeLimit: 1000
 --- !u!1 &1273319745
