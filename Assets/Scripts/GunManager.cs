@@ -30,11 +30,19 @@ public class GunManager : MonoBehaviour
 
     public Transform attackPoint;
 
+    PlayerControls controls;
+
     private void Awake()
     {
         //Make sure magazine is full
         bulletsLeft = maganizeSize;
         readyToShoot = true;
+
+        //Input from controller lol lmao - Anton
+        controls = new PlayerControls();
+
+        controls.PlayerMovement.Shoot.performed += cntxt => shooting = true;
+        controls.PlayerMovement.Shoot.canceled += cntxt => shooting = false;
     }
 
 
@@ -47,8 +55,8 @@ public class GunManager : MonoBehaviour
     private void MyInput()
     {
         //Check if allowed to hold down buttton, if enables it causes the gun to "spar and pray"
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse1);
-        else shooting = Input.GetKeyDown(KeyCode.Mouse1);
+        //if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse1);
+        //else shooting = Input.GetKeyDown(KeyCode.Mouse1);
 
         //Shooting
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
