@@ -504,6 +504,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6677465180383879613, guid: 24bcaa804529e3948962970a71de1225, type: 3}
+      propertyPath: health
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24bcaa804529e3948962970a71de1225, type: 3}
 --- !u!1 &457847081
@@ -818,7 +822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917988746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.86}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -955,7 +959,7 @@ MonoBehaviour:
   bullet: {fileID: 7816377870417232490, guid: e6d2fbb232793d744aa1f1aefd628270, type: 3}
   shootForce: 5000
   upwardForce: 100
-  timeBetweenShoting: 0.01
+  timeBetweenShoting: 0.08
   spread: 0
   reloadTime: 0
   timeBetweenShots: 1
@@ -1332,8 +1336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shooter: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
   creeper: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
-  enemySpawnTime: 600
-  enemySpawnTimeLimit: 120
+  enemySpawnTime: 5000
+  enemySpawnTimeLimit: 1000
 --- !u!1 &1273319745
 GameObject:
   m_ObjectHideFlags: 0

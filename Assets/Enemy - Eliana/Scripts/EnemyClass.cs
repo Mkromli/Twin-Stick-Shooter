@@ -29,17 +29,14 @@ public class EnemyClass : MonoBehaviour
         if (currentHP <= 0)
         {
             isDead = true;
+
         }
     }
 
     public void TakeDamage(float dmg)
     {
         currentHP -= dmg;
+        Debug.Log("Ow " + currentHP);
         
-    }
-
-    public virtual void Attack()
-    {
-
     }
 }

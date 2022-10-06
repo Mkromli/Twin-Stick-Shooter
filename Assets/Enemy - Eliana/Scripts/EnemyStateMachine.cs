@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum EnemyState {Chase, Attack, Dead}
+public enum EnemyState {Chase, Dead}
 
 public class EnemyStateMachine : MonoBehaviour
 {
@@ -32,38 +32,16 @@ public class EnemyStateMachine : MonoBehaviour
         {
             case EnemyState.Chase:
                 ChasePlayer();
-                CheckDistance();
                 IsIDead();
                 break;
 
-            case EnemyState.Attack:
-                enemyClass.Attack();
-                ChasePlayer();
-                break;
-
             case EnemyState.Dead:
-                Instantiate(enemyClass.deathEffect, transform.position, Quaternion.identity);
-                Debug.Log("Death");
-                Destroy(this.gameObject);
+                Debug.Log("I is died");
+                Die();
                 break;
 
             default:
                 break;
-        }
-    }
-
-    public void CheckDistance()
-    {
-        float distTo = Vector3.Distance(target.position, transform.position);
-
-        if (distTo <= attackRadius)
-        {
-            currentState = EnemyState.Attack;
-        }
-
-        else if (distTo > attackRadius)
-        {
-            currentState = EnemyState.Chase;
         }
     }
 
@@ -78,8 +56,15 @@ public class EnemyStateMachine : MonoBehaviour
         if (enemyClass.isDead == true)
         {
             currentState = EnemyState.Dead;
-            Debug.Log("Yes, I am dead " + enemyClass.isDead);
+            Debug.Log("I is died");
         }
         
+    }
+
+    public void Die()
+    {
+        Instantiate(enemyClass.deathEffect, transform.position, Quaternion.identity);
+            Debug.Log("Death");
+            Destroy(this.gameObject);
     }
 }
