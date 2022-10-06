@@ -11,9 +11,4 @@ public class ShooterEnemy : EnemyClass
     public override float speed {get => 5f;}
 
     public override float recoverTime {get => 10f;}
-
-    public override void Attack()
-    {
-        
-    }
 }

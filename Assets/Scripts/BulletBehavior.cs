@@ -38,16 +38,16 @@ public class BulletBehavior : MonoBehaviour
 
 
     // Checks if the bullet collides with the anything tagged "Player", easy changed to make into "enemy"
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             //Checks if it has object it has colided with had the int "PlayerHealth" and then reduces the health by the damadge of the bullet. Also checks if the player is currently invincible or not.
             player = GameObject.Find("Player");
             PlayerHealth invincible = player.GetComponent<PlayerHealth>();
             if (invincible.invincible == false)
             {
-                collision.gameObject.GetComponent<PlayerHealth>().health -= damage;
+                other.gameObject.GetComponent<PlayerHealth>().health -= damage;
                 invincible.invincible = true;
             }
             
@@ -55,12 +55,19 @@ public class BulletBehavior : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Ow");
+            other.gameObject.GetComponent<EnemyClass>().TakeDamage(damage);
             
             //This destorys the bullet
             Destroy(gameObject);
         }
+    {
+        if (other.gameObject.name == "Lava")
+        {
+            Destroy(gameObject);
+
+        }
+    }
     }
 }

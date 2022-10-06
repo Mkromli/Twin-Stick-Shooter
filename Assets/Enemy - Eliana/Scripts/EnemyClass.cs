@@ -24,14 +24,18 @@ public class EnemyClass : MonoBehaviour
         isDead = false;
     }
 
-    public void TakeDamage(float dmg)
+    private void Update()
     {
-        currentHP -= dmg;
-
         if (currentHP <= 0)
         {
             isDead = true;
         }
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        currentHP -= dmg;
+        
     }
 
     public virtual void Attack()

@@ -22,6 +22,8 @@ public class EnemyStateMachine : MonoBehaviour
         currentState = EnemyState.Chase;
 
         attackRadius = enemyClass.attackRadius;
+
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     private void Update()
@@ -31,7 +33,7 @@ public class EnemyStateMachine : MonoBehaviour
             case EnemyState.Chase:
                 ChasePlayer();
                 CheckDistance();
-
+                IsIDead();
                 break;
 
             case EnemyState.Attack:
@@ -41,7 +43,8 @@ public class EnemyStateMachine : MonoBehaviour
 
             case EnemyState.Dead:
                 Instantiate(enemyClass.deathEffect, transform.position, Quaternion.identity);
-                Destroy(this);
+                Debug.Log("Death");
+                Destroy(this.gameObject);
                 break;
 
             default:
@@ -72,9 +75,10 @@ public class EnemyStateMachine : MonoBehaviour
 
     public void IsIDead()
     {
-        if (enemyClass.isDead)
+        if (enemyClass.isDead == true)
         {
             currentState = EnemyState.Dead;
+            Debug.Log("Yes, I am dead " + enemyClass.isDead);
         }
         
     }
