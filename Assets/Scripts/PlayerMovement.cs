@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private int dashTimer;
     private int dashCooldown;
     private bool dashButtonPressed;
+    private bool resetButtonPressed;
 
     private GameObject player;
 
@@ -40,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
 
         controls.PlayerMovement.Dash.performed += cntxt => dashButtonPressed = true;
         controls.PlayerMovement.Dash.canceled += cntxt => dashButtonPressed = false;
+
+        controls.PlayerMovement.Restart.performed += cntxt => resetButtonPressed = true;
 
 
         //This is tank controls that i had before, if we want  to we can make this an option in gameplay.
@@ -69,6 +73,13 @@ public class PlayerMovement : MonoBehaviour
                     player.GetComponent<Rigidbody>().useGravity = false;
                 }
             }
+        }
+
+        //the reset
+        if (resetButtonPressed == true)
+        {
+            RestartGame();
+            Debug.Log("Pressing Y");
         }
 
         //the part where it dashes lol
@@ -109,6 +120,12 @@ public class PlayerMovement : MonoBehaviour
        // GetComponent<Transform>().Rotate(Vector3.up * rot.x * rotSpeed);
     }
 
+    //the reset
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+
+    }
 
     //checks if dashing into shooter enemy, if the player does the shooter dies.
     private void OnCollisionEnter(Collision collision)
