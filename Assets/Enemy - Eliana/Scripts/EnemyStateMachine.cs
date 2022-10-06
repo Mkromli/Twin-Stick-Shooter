@@ -33,6 +33,7 @@ public class EnemyStateMachine : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.Idle:
+                Roam();
                 CheckDistance();
                 break;
 
@@ -43,10 +44,12 @@ public class EnemyStateMachine : MonoBehaviour
 
             case EnemyState.Attack:
                 enemyClass.Attack();
+                currentState = EnemyState.Recover;
                 break;
 
             case EnemyState.Recover:
                 RecoverTimer();
+                currentState = EnemyState.Idle;
                 break;
 
             case EnemyState.Dead:
@@ -67,13 +70,30 @@ public class EnemyStateMachine : MonoBehaviour
         if(NavMesh.SamplePosition(randomDirection, out hit, roamRadius, 1))
         {
             Vector3 finalPosition = hit.position;
-            Vector3 moveTo = Vector3.MoveTowards(transform.position, finalPosition, 100f);
+            
+            transform.LookAt(finalPosition);
+
+            navMesh.destination = finalPosition;
+
+
+            float counter = 0f;
+
+            float waitTime = 10f;
+
+            while (counter <= waitTime)
+            {
+                counter += Time.deltaTime;
+            }            
         }
     }
 
     private void CheckDistance()
     {
-        float distTo = Vector3.Distance(a: transform.position, b: target.position);
+        
+
+        float distTo = Vector3.Distance(transform.position, target.position);
+
+        Debug.Log(distTo);
         
         if(distTo <= chaseRadius && currentState == EnemyState.Idle)
         {
@@ -88,9 +108,10 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void ChasePlayer()
     {
+        Debug.Log("Chasing");
         transform.LookAt(target);
 
-        Vector3 moveTo = Vector3.MoveTowards(transform.position, target.position, 100f);
+        navMesh.destination = target.position;
     }
 
     private void RecoverTimer()
