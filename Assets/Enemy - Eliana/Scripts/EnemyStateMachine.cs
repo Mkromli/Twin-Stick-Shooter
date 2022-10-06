@@ -31,6 +31,7 @@ public class EnemyStateMachine : MonoBehaviour
             case EnemyState.Chase:
                 ChasePlayer();
                 CheckDistance();
+
                 break;
 
             case EnemyState.Attack:
@@ -39,6 +40,7 @@ public class EnemyStateMachine : MonoBehaviour
                 break;
 
             case EnemyState.Dead:
+                Instantiate(enemyClass.deathEffect, transform.position, Quaternion.identity);
                 Destroy(this);
                 break;
 
@@ -66,5 +68,14 @@ public class EnemyStateMachine : MonoBehaviour
     {
         transform.LookAt(target);
         navMesh.destination = target.position;
+    }
+
+    public void IsIDead()
+    {
+        if (enemyClass.isDead)
+        {
+            currentState = EnemyState.Dead;
+        }
+        
     }
 }

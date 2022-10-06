@@ -14,6 +14,8 @@ public class EnemyClass : MonoBehaviour
 
     public virtual float recoverTime {get; set;}
 
+    public GameObject deathEffect;
+
     public bool isDead;
 
     private void Start()
