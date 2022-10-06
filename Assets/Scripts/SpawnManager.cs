@@ -23,11 +23,11 @@ public class SpawnManager : MonoBehaviour
             GameObject creeperE = Instantiate(creeper);
 
             spawnArea = Random.Range(0, 3);
-            enemyChoose = Random.Range(0, 1);
+            enemyChoose = Random.Range(0, 2);
 
-            if (spawnArea > 2)
+            if (spawnArea == 0)
             {
-               if (enemyChoose > 0.5)
+               if (enemyChoose == 1)
                 {
                     shooterE.transform.position = new Vector3(Random.Range(25f, 47f), 1f, Random.Range(59f, -60f));
 
@@ -39,8 +39,9 @@ public class SpawnManager : MonoBehaviour
                 }
                 
                 
+                
             }
-            else if (spawnArea > 1)
+            else if (spawnArea == 1)
             {
                 if (enemyChoose > 0.5)
                 {
@@ -52,8 +53,9 @@ public class SpawnManager : MonoBehaviour
                     creeperE.transform.position = new Vector3(Random.Range(10f, -10f), 1f, Random.Range(-60f, 59f));
 
                 }
+                ;
             }
-            else if (spawnArea > 0)
+            else if (spawnArea == 2)
             {
                 if (enemyChoose > 0.5)
                 {
@@ -65,8 +67,10 @@ public class SpawnManager : MonoBehaviour
                     creeperE.transform.position = new Vector3(Random.Range(-27f, -47f), 1f, Random.Range(59f, -60));
 
                 }
+                
             }
 
+            Debug.Log(spawnArea);
             timer = 0;
             if (enemySpawnTime > enemySpawnTimeLimit)
             {
