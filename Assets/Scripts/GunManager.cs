@@ -24,7 +24,7 @@ public class GunManager : MonoBehaviour
     private int bulletsLeft;
     private int bulletsShot;
 
-    private bool shooting;
+    public bool shooting;
     private bool readyToShoot;
     private bool reloading;
 
