@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private bool shootButtonPressed;
 
     private GameObject player;
+    private GameObject gunManager;
 
 
     private void Awake()
@@ -66,16 +67,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (shootButtonPressed == true)
         {
-            player = GameObject.Find("Player");
-            GunManager shooting = player.GetComponent<GunManager>();
+          gunManager = GameObject.Find("Gun Manager");
+            GunManager shooting = gunManager.GetComponent<GunManager>();
             shooting.shooting = true;
 
 
         }
         else
         {
-            player = GameObject.Find("Player");
-            GunManager shooting = player.GetComponent<GunManager>();
+            gunManager = GameObject.Find("Gun Manager");
+            GunManager shooting = gunManager.GetComponent<GunManager>();
             shooting.shooting = false;
         }
 
