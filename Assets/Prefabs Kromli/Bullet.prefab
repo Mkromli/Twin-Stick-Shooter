@@ -111,6 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4ed91793bf82245b26a840ac16a9c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
+  lifeSpawn: 100
+  bulletSize: 0
+  projectileBody: {fileID: -1429208272603537301}
 --- !u!54 &-1429208272603537301
 Rigidbody:
   m_ObjectHideFlags: 0
