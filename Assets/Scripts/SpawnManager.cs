@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
             }
             else if (spawnArea == 1)
             {
-                if (enemyChoose > 0.5)
+                if (enemyChoose == 1)
                 {
                     shooterE.transform.position = new Vector3(Random.Range(10f, -10f), 1f, Random.Range(-60f, 59f));
 
@@ -57,7 +57,7 @@ public class SpawnManager : MonoBehaviour
             }
             else if (spawnArea == 2)
             {
-                if (enemyChoose > 0.5)
+                if (enemyChoose == 1)
                 {
                     shooterE.transform.position = new Vector3(Random.Range(-27f, -47f), 1f, Random.Range(59f, -60));
 
