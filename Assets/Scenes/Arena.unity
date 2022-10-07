@@ -830,8 +830,12 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6677465180383879611, guid: 24bcaa804529e3948962970a71de1225, type: 3}
+      propertyPath: dashEffectClone
+      value: 
+      objectReference: {fileID: 3068856379989805814, guid: 6e805a82c31f08749858e3ec4898e2ab, type: 3}
+    - target: {fileID: 6677465180383879611, guid: 24bcaa804529e3948962970a71de1225, type: 3}
       propertyPath: dashCooldownLength
-      value: 1
+      value: 1800
       objectReference: {fileID: 0}
     - target: {fileID: 6677465180383879612, guid: 24bcaa804529e3948962970a71de1225, type: 3}
       propertyPath: m_RootOrder
