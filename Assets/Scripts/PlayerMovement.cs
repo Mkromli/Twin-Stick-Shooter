@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private GameObject player;
     private GameObject gunManager;
+    public GameObject dashEffect;
 
 
     private void Awake()
@@ -92,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
                     dashTimerStart = true;
                     player = GameObject.Find("Player");
                     player.GetComponent<Rigidbody>().useGravity = false;
+                    Instantiate(dashEffect, transform.position, transform.rotation);
+                    Destroy(dashEffect, 1f);
                 }
             }
         }
@@ -145,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //put the name of the shooting enemies in there, so that it can actually work lol
-        if (collision.gameObject.name == "EnemyNamehere lol")
+        if (collision.gameObject.name == "ShooterEnemy")
         {
             if (dashTimerStart == true)
             {
