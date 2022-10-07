@@ -94,7 +94,6 @@ public class PlayerMovement : MonoBehaviour
                     player = GameObject.Find("Player");
                     player.GetComponent<Rigidbody>().useGravity = false;
                     Instantiate(dashEffect, transform.position, transform.rotation);
-                    Destroy(dashEffect, 1f);
                 }
             }
         }
