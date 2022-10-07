@@ -1,6 +1,8 @@
 # Twin-Stick-Shooter
 Protoyping Course Project
+
 Group 1
+
 Anton Cederlund, Eliana B. Parada, Kasper Sandin, Markus Kromli
 
 The controls for the game are the joysticks for movement and aiming, right bumper for shooting and left bumper for dashing. 
