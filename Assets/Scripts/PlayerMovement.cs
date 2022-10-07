@@ -149,12 +149,12 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //put the name of the shooting enemies in there, so that it can actually work lol
-        if (collision.gameObject.name == "ShooterEnemy")
+        if (collision.gameObject.name == "ShooterEnemy(Clone)")
         {
             if (dashTimerStart == true)
             {
                 Destroy(collision.gameObject);
-
+                Debug.Log("dash death lol lmao im dead inside");
             }
 
         }
