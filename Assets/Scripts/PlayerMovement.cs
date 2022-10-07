@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private bool dashTimerStart = false;
     private bool dashCooldownStart = false;
     private int dashTimer;
-    private int dashCooldown;
+    private float dashCooldown;
     private bool dashButtonPressed;
     private bool resetButtonPressed;
     private bool shootButtonPressed;

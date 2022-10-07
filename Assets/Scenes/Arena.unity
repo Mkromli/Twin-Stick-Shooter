@@ -332,7 +332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -179, y: -234}
+  m_AnchoredPosition: {x: -179, y: -235}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &305244115
@@ -818,8 +818,20 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6677465180383879611, guid: 24bcaa804529e3948962970a71de1225, type: 3}
+      propertyPath: dashEffect
+      value: 
+      objectReference: {fileID: 3068856379989805814, guid: 6e805a82c31f08749858e3ec4898e2ab, type: 3}
+    - target: {fileID: 6677465180383879611, guid: 24bcaa804529e3948962970a71de1225, type: 3}
+      propertyPath: dashLength
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677465180383879611, guid: 24bcaa804529e3948962970a71de1225, type: 3}
       propertyPath: originalSpeed
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677465180383879611, guid: 24bcaa804529e3948962970a71de1225, type: 3}
+      propertyPath: dashCooldownLength
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6677465180383879612, guid: 24bcaa804529e3948962970a71de1225, type: 3}
       propertyPath: m_RootOrder
@@ -879,7 +891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6677465180383879613, guid: 24bcaa804529e3948962970a71de1225, type: 3}
       propertyPath: health
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6677465180383879613, guid: 24bcaa804529e3948962970a71de1225, type: 3}
       propertyPath: healthBar
@@ -1759,7 +1771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooter: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
-  creeper: {fileID: 0}
+  creeper: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
   enemySpawnTime: 5000
   enemySpawnTimeLimit: 1000
 --- !u!1 &1273319745
@@ -1991,7 +2003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -446, y: -236}
+  m_AnchoredPosition: {x: -322, y: -235}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1392136987
