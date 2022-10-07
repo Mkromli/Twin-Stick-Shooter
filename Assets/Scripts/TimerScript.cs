@@ -6,7 +6,9 @@ using UnityEngine;
 public class TimerScript : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI Timer;
+    [SerializeField] private TextMeshProUGUI KillCount;
     private int timer;
+    public int kills;
     private int timerTimer;
 
     // Update is called once per frame
@@ -21,5 +23,7 @@ public class TimerScript : MonoBehaviour
 
         }
         Timer.SetText(timer.ToString());
+
+        KillCount.SetText(kills.ToString());
     }
 }

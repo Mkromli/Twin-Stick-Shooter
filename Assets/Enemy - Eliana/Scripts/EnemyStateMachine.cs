@@ -17,6 +17,8 @@ public class EnemyStateMachine : MonoBehaviour
 
     private float attackRadius;
 
+    private GameObject timerObject;
+
     private void Start()
     {
         currentState = EnemyState.Chase;
@@ -36,7 +38,6 @@ public class EnemyStateMachine : MonoBehaviour
                 break;
 
             case EnemyState.Dead:
-                Debug.Log("I is died");
                 Die();
                 break;
 
@@ -56,15 +57,16 @@ public class EnemyStateMachine : MonoBehaviour
         if (enemyClass.isDead == true)
         {
             currentState = EnemyState.Dead;
-            Debug.Log("I is died");
         }
         
     }
 
     public void Die()
     {
+        timerObject = GameObject.Find("Ui");
+        TimerScript killcount = timerObject.GetComponent<TimerScript>();
+        killcount.kills += 1;
         Instantiate(enemyClass.deathEffect, transform.position, Quaternion.identity);
-            Debug.Log("Death");
-            Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

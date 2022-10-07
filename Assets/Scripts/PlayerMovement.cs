@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gamepadRotateSmoothing = 1000f;
     [SerializeField] private int dashLength = 300;
     [SerializeField] private int dashCooldownLength = 1800;
+    [SerializeField] private Image dashBar;
 
     PlayerControls controls;
     Vector2 move;
@@ -65,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 m = new Vector3(move.x * speed, 0, move.y * speed);
 
         GetComponent<Rigidbody>().velocity = m;
+
+        
 
         if (shootButtonPressed == true)
         {
@@ -120,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
         if (dashCooldownStart == true)
         {
             dashCooldown += 1;
+            dashBar.fillAmount = dashCooldown / 1800;
             //the thing that checks when cooldown is over
             if (dashCooldown >= dashCooldownLength)
             {
@@ -137,11 +142,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //the reset
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
-
-    }
+    
 
     //checks if dashing into shooter enemy, if the player does the shooter dies.
     private void OnCollisionEnter(Collision collision)
