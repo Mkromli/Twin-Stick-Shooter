@@ -66,8 +66,8 @@ public class EnemyStateMachine : MonoBehaviour
         timerObject = GameObject.Find("Ui");
         TimerScript killcount = timerObject.GetComponent<TimerScript>();
         killcount.kills += 1;
-        GameObject deathEffectClone = (GameObject)Instantiate (enemyClass.deathEffect, transform.position, Quaternion.identit);
-        Destroy(dashEffectClone, 2f);
+        GameObject deathEffectClone = (GameObject)Instantiate (enemyClass.deathEffect, transform.position, Quaternion.identity);
+        Destroy(deathEffectClone, 2f);
         Destroy(this.gameObject);
     }
 }

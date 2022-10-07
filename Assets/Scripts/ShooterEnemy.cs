@@ -8,7 +8,7 @@ public class ShooterEnemy : EnemyClass
 
     public override float attackRadius {get => 30f;}
 
-    public override float speed {get => 5f;}
+    public override float speed {get => 15f;}
 
     public override float recoverTime {get => 10f;}
 }

@@ -823,7 +823,7 @@ PrefabInstance:
       objectReference: {fileID: 3068856379989805814, guid: 6e805a82c31f08749858e3ec4898e2ab, type: 3}
     - target: {fileID: 6677465180383879611, guid: 24bcaa804529e3948962970a71de1225, type: 3}
       propertyPath: dashLength
-      value: 9
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6677465180383879611, guid: 24bcaa804529e3948962970a71de1225, type: 3}
       propertyPath: originalSpeed
@@ -1352,7 +1352,7 @@ MonoBehaviour:
   bullet: {fileID: 7816377870417232490, guid: e6d2fbb232793d744aa1f1aefd628270, type: 3}
   shootForce: 5000
   upwardForce: 100
-  timeBetweenShoting: 0.08
+  timeBetweenShoting: 0.2
   spread: 0
   reloadTime: 0
   timeBetweenShots: 1
@@ -1776,8 +1776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shooter: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
   creeper: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
-  enemySpawnTime: 5000
-  enemySpawnTimeLimit: 1000
+  enemySpawnTime: 500
+  enemySpawnTimeLimit: 50
 --- !u!1 &1273319745
 GameObject:
   m_ObjectHideFlags: 0

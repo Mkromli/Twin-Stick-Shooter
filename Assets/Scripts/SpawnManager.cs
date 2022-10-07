@@ -76,11 +76,10 @@ public class SpawnManager : MonoBehaviour
                 
             }
 
-            Debug.Log(spawnArea);
             timer = 0;
             if (enemySpawnTime > enemySpawnTimeLimit)
             {
-                enemySpawnTime -= 1;
+                enemySpawnTime -= 10;
             }
             
             

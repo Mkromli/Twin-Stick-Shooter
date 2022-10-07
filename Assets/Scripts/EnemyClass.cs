@@ -36,7 +36,6 @@ public class EnemyClass : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         currentHP -= dmg;
-        Debug.Log("Ow " + currentHP);
         
     }
 }
