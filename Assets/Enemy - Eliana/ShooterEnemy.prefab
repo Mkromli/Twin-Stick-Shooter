@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7f3769398bfcaf48a8c27ba05ea0420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 1
+  currentHP: 10
   deathEffect: {fileID: 1009083776024244717, guid: 09fc7ada9f62a444db99d78dc5fbbd98, type: 3}
   isDead: 0
 --- !u!1 &4088918150847935485
