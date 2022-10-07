@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     private GameObject player;
     private GameObject gunManager;
-    public GameObject dashEffect;
+    public GameObject dashEffectClone;
 
 
     private void Awake()
@@ -97,7 +97,8 @@ public class PlayerMovement : MonoBehaviour
                     dashTimerStart = true;
                     player = GameObject.Find("Player");
                     player.GetComponent<Rigidbody>().useGravity = false;
-                    Instantiate(dashEffect, transform.position, transform.rotation);
+                    Instantiate(dashEffectClone, transform.position, transform.rotation);
+                    Destroy(dashEffectClone, 3f);
                 }
             }
         }

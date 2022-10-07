@@ -135,6 +135,8 @@ MonoBehaviour:
   gamepadRotateSmoothing: 1000
   dashLength: 90
   dashCooldownLength: 1800
+  dashBar: {fileID: 0}
+  dashEffect: {fileID: 3068856379989805814, guid: 6e805a82c31f08749858e3ec4898e2ab, type: 3}
 --- !u!114 &6677465180383879613
 MonoBehaviour:
   m_ObjectHideFlags: 0
