@@ -1777,7 +1777,7 @@ MonoBehaviour:
   shooter: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
   creeper: {fileID: 3115919135170036754, guid: 770b8c18a2772654ab26e0762a2d861e, type: 3}
   enemySpawnTime: 500
-  enemySpawnTimeLimit: 50
+  enemySpawnTimeLimit: 10
 --- !u!1 &1273319745
 GameObject:
   m_ObjectHideFlags: 0
